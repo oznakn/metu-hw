@@ -1,0 +1,6 @@
+User[id:1, name: yusuf, hash: 22712]
+User[id:2, name: omer, hash: 6525]
+User[id:3, name: aliss, hash: 52662]
+User[id:4, name: aliss2, hash: 52662]
+User1[id:1, name: yusuf, hash: 22712], User2[id:4, name: aliss2, hash: 52662], Connection Time: 225
+Connection is NULL: 1

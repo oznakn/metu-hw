@@ -1,0 +1,48 @@
+User[id:1, name: yusuf, hash: 22712]
+User[id:2, name: omer, hash: 6525]
+User[id:3, name: aliss, hash: 52662]
+User[id:4, name: aliss2, hash: 52662]
+Initial connections of User[id:1, name: yusuf, hash: 22712]:
+Bucket 0: NULL
+Bucket 1: NULL
+Bucket 2: [user1: yusuf, user2: aliss2, connection_time: 225] -> NULL
+Bucket 3: NULL
+Bucket 4: NULL
+Bucket 5: [user1: yusuf, user2: omer, connection_time: 123] -> NULL
+Bucket 6: NULL
+Bucket 7: NULL
+Bucket 8: NULL
+Bucket 9: NULL
+Initial connections of User[id:2, name: omer, hash: 6525]:
+Bucket 0: NULL
+Bucket 1: NULL
+Bucket 2: [user1: omer, user2: yusuf, connection_time: 123] -> [user1: omer, user2: aliss, connection_time: 444] -> NULL
+Bucket 3: NULL
+Bucket 4: NULL
+Bucket 5: NULL
+Bucket 6: NULL
+Bucket 7: NULL
+Bucket 8: NULL
+Bucket 9: NULL
+Final connections of User[id:1, name: yusuf, hash: 22712]:
+Bucket 0: NULL
+Bucket 1: NULL
+Bucket 2: [user1: yusuf, user2: aliss2, connection_time: 225] -> NULL
+Bucket 3: NULL
+Bucket 4: NULL
+Bucket 5: [user1: yusuf, user2: omer, connection_time: 123] -> NULL
+Bucket 6: NULL
+Bucket 7: NULL
+Bucket 8: NULL
+Bucket 9: NULL
+Final connections of User[id:2, name: omer, hash: 6525]:
+Bucket 0: NULL
+Bucket 1: NULL
+Bucket 2: [user1: omer, user2: yusuf, connection_time: 123] -> [user1: omer, user2: aliss2, connection_time: 216] -> [user1: omer, user2: aliss, connection_time: 444] -> NULL
+Bucket 3: NULL
+Bucket 4: NULL
+Bucket 5: NULL
+Bucket 6: NULL
+Bucket 7: NULL
+Bucket 8: NULL
+Bucket 9: NULL
