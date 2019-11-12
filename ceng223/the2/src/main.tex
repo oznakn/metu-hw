@@ -1,0 +1,209 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Ozan Akın \\
+Id Number : 2309599 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\begin{enumerate}[a)]
+    \item
+        \begin{enumerate}[(i)]
+            \item $A \cap (B \cup C)$
+            \item $(A \cap B) \cup C$
+            \item $A - ((A \cap B) - C)$
+        \end{enumerate}{}
+        ~ \\
+    \item 
+        \begin{enumerate}[(i)]
+            \item $(A \times B) \times C  = A \times (B \times C)$
+                \begin{itemize}
+                    \item Let A, B, C different sets given as; \\
+                        $A = \{a, b\}$ \\
+                        $B = \{c, d\}$ \\
+                        $C = \{e\}$
+                    \item $A \times B = \{(a, c), (a, d), (b, c), (b, d)\}$ \\
+                        $B \times C = \{(c, e), (c, e)\}$
+                    \item $(A \times B) \times C = \{((a, c), e), ((a, d), e), ((b, c), e), ((b, d), e)\}$ \\
+                        $A \times (B \times C) = \{(a, (c, e)), (a, (d, e)), (b, (c, e)), (b, (d, e))\} $
+                \end{itemize}{}
+            As a result, $(A \times B) \times C \neq A \times (B \times C)$ \\
+            
+            \item ~ 
+\begin{table}[H]
+    \centering
+    $(A \cap B) \cap C = A \cap (B \cap C)$ \\
+    ~ \\
+    \begin{tabular}{c|c|c|c|c|c|c}
+         $A$ & $B$ & $C$ & $A \cap B$ & $B \cap C$ & $(A \cap B) \cap C$ & $A \cap (B \cap C)$ \\
+         \hline
+         $1$ & $1$ & $1$ & $1$ & $1$ & $1$ & $1$ \\
+         $1$ & $1$ & $0$ & $1$ & $0$ & $0$ & $0$ \\
+         $1$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ \\
+         $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ \\
+         $0$ & $1$ & $1$ & $0$ & $1$ & $0$ & $0$ \\
+         $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ \\
+         $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ \\
+         $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ \\
+         
+    \end{tabular}
+
+    As a result, $(A \cap B) \cap C = A \cap (B \cap C)$. \\
+\end{table}
+
+
+\pagebreak
+
+            \item ~
+\begin{table}[H]
+    \centering
+    $(A \oplus B) \oplus C = A \oplus (B \oplus C)$ \\
+    ~ \\
+    \begin{tabular}{c|c|c|c|c|c|c}
+         $A$ & $B$ & $C$ & $A \oplus B$ & $B \oplus C$ & $(A \oplus B) \oplus C$ & $A \oplus (B \oplus C)$ \\
+         \hline
+         $1$ & $1$ & $1$ & $0$ & $0$ & $1$ & $1$ \\
+         $1$ & $1$ & $0$ & $0$ & $1$ & $0$ & $0$ \\
+         $1$ & $0$ & $1$ & $1$ & $1$ & $0$ & $0$ \\
+         $1$ & $0$ & $0$ & $1$ & $0$ & $1$ & $1$ \\
+         $0$ & $1$ & $1$ & $1$ & $0$ & $0$ & $0$ \\
+         $0$ & $1$ & $0$ & $1$ & $1$ & $1$ & $1$ \\
+         $0$ & $0$ & $1$ & $0$ & $1$ & $1$ & $1$ \\
+         $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ \\
+         
+    \end{tabular}
+
+    As a result, $(A \oplus B) \oplus C = A \oplus (B \oplus C)$. \\
+\end{table}
+        \end{enumerate}{}
+\end{enumerate}{}
+
+\hfill
+
+\section*{Answer 2}
+
+\begin{enumerate}[a)]
+    \item 
+        $A_0 \subseteq f^{-1}(f(A_0))$
+        
+        \begin{itemize}
+            \item To show $A_0 \subseteq f^{-1}(f(A_0))$, we have to prove that $\forall x(x \in A_0 \rightarrow x \in f^{-1}(f(A_0))$.
+            \item Since $x \in A_0$ and $A_0 \subseteq A$, there must be $f(x) \in B$.
+            \item Since $f$ is injective, $f(a) = f(b) \rightarrow a = b$, there must be $C_{0} \subseteq B$ such that $f(x) \in C_{0}$.
+            \item As a result, there must be $x \in f^{-1}(C_{0})$.
+            \item Since also $f(A_0) = C_{0}$, $A_0 = f^{-1}(f(A_0))$
+            \item This also implies $A_0 \subseteq f^{-1}(f(A_0))$
+        \end{itemize}{}
+        
+    \item
+        $f(f^{-1}(B_0)) \subseteq B_0$
+        
+        \begin{itemize}
+            \item To show $f(f^{-1}(B_0)) \subseteq B_0$, we have to show that $\forall x (x \in f(f^{-1}(B_0)) \rightarrow x \in B_0)$.
+            \item Let $f^{-1}(B_0) \in C_0$, then $f(C_0) = B_0$.
+            \item $f(C_0) \subseteq B_0$ if and only if $f$ is surjective, since there can be elements that does not belong to $f(f^{-1}(B_0))$.
+            \item As a result, $f(f^{-1}(B_0)) \subseteq B_0$.
+        \end{itemize}{}
+\end{enumerate}{}
+
+\pagebreak
+
+\section*{Answer 3}
+
+Let $A$ be a nonempty set. Show that the following are equivalent
+
+\begin{enumerate}[(i)]
+    \item A is countable
+    \item There is a surjective function $f : \mathbb{Z}^{+} \rightarrow A$
+    \item There is a injective function $f : A \rightarrow  \mathbb{Z}^{+} $
+\end{enumerate}{}
+
+\hfill
+
+\begin{enumerate}[1)]
+    \item If $A$ is countable, that means either $A$ is a finite set, or $A$ has same cardinality with the set $Z^+$ (defn. 3 from textbook p. 171).
+    \item The sets $A$ and $\mathbb{Z}^{+}$ have the same cardinality if and only if there is one to one correspondence from $A$ to $\mathbb{Z}^{+}$ (defn. 1 from textbook p. 170).
+    \item If there is one to one correspondence from $A$ to $\mathbb{Z}^{+}$, then they the cardinality of $A$ is less then or same as the cardinality of $\mathbb{Z}^{+}$ (defn. 2 from textbook p. 170).
+    \item Let $f : \mathbb{Z}^{+} \rightarrow A$. If $A$ is countable and $|A| \leq |\mathbb{Z}^{+}|$, then using (3) we can define $f$ such that f is a surjective function. $(i) \rightarrow (ii)$
+    \item Let $g : A \rightarrow \mathbb{Z}^{+}$. As a result from $f$ and (3) we can define $g$ as injective, since there is one to one correspondence from $A$ to $\mathbb{Z}^{+}$. $(ii) \rightarrow (iii)$
+    \item Since $|A| \leq |\mathbb{Z}^{+}|$, we can say that $A$ is countable using (1). $(iii) \rightarrow (i)$
+\end{enumerate}{}
+
+\hfill
+
+\section*{Answer 4}
+
+\begin{enumerate}[a)]
+    \item
+        Show that the set of finite binary strings is countable.
+        
+        \begin{itemize}
+            \item We can define a function $f$ from binary strings which is a sequence of $0s$ and $1s$ to positive integers such as $f("0001") = 1$, $f("0101") = 5$ etc.
+            \item Since we can enumerate positive integers, $\mathbb{Z}^{+}$ is countable, the set of finite binary strings must be countable.
+        \end{itemize}{}
+    \item
+        Show that the set of infinite binary strings is uncountable.
+        \begin{itemize}
+            \item If the consider infinite binary strings, then we cannot define a function $f$ from binary strings which is a sequence of $0s$ and $1s$ to positive integers since there will be infinite positive integers that can be represented by a binary string.
+            \item Since we cannot define the function $f$, we cannot represent binary strings as positive integers.
+            \item Since we cannot enumerate the infinite binary strings as they are uncountable, also the set of infinite binary string is uncountable.
+        \end{itemize}{}
+\end{enumerate}{}
+
+\pagebreak
+
+\section*{Answer 5}
+
+\begin{enumerate}[a)]
+    \item Determine whether $\log n!$ is $\Theta (n \log n)$.
+        \begin{enumerate}[1)]
+            \item Consider that $\log (a \cdot b) = \log (a) + \log (b)$.
+            \item In order to prove $\log n!$ is $\Theta (n \log n)$, we have to prove both $\log n!$ is $O (n \log n)$ and $n \log n$ is $\Omega (\log n!)$.
+            \item $\log (n!) = \log (n \cdot (n-1) \cdot (n-2) \cdot (n-3) \dots 1)$ \\
+                $\log (n!) = \log (n) + \log (n-1) + \log (n-2) + \dots + \log (1)$ \\
+                $\log (n!) \leq \log n + \log n + \log n + \dots + \log n$ (n times) \\
+                $\log (n!) \leq n \log n$
+            \item So, $\log n!$ is $O (n \log n)$.
+            \item $\log (n!) = \log (n \cdot (n-1) \cdot (n-2) \cdot (n-3) \dots 1)$ \\
+                $\log (n!) = \log (n) + \log (n-1) + \log (n-2) + \dots + \log (1)$ \\
+                $\log (n!) \geq \log (n) + \dots + \log (\frac{n}{2}+1) + \log (\frac{n}{2})$  (delete second half) \\
+                $\log (n!) \geq \log (\frac{n}{2}) + \dots + \log (\frac{n}{2}) + \log (\frac{n}{2})$ (replace all by $\frac{n}{2}$, which is much smaller) \\
+                $\log (n!) \geq \frac{n}{2} \cdot \log (\frac{n}{2})$
+            \item So, $\log n!$ is $\Omega (n \log n)$.
+            \item As a result from both (4) and (6), $\log n!$ is $\Theta (n \log n)$.
+        \end{enumerate}{}
+        
+    \item Which function grows faster, $n!$ or $2^n$?
+        \begin{itemize}
+            \item Let $f(n) = \dfrac{n!}{2^n}$
+            \item $L = \lim_{n \rightarrow \infty} |\dfrac{f(n+1)}{f(n)}|$
+                $ = \lim_{n \rightarrow \infty} |\dfrac{(n+1)!}{2^{n+1}} \cdot \dfrac{2^n}{n!}|$
+                $ = \lim_{n \rightarrow \infty} |\dfrac{(n+1) \cdot n!}{2 \cdot 2^n} \cdot \dfrac{2^n}{n!}|$
+                $ = \dfrac{n+1}{2}$
+            \item For $n \in \mathbb{Z}^+, L \geq 1$.
+            \item As a result, from ratio test $n!$ grows faster than $2^n$.
+        \end{itemize}{}
+\end{enumerate}
+
+
+
+\end{document}
