@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name :  Ozan Akın\\
+Id Number :  2309599 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+    \begin{enumerate}[a)]
+        \item If we want every 1 is followed immediately by 0, we can construct bit string length of 9 using the sequences 10 and 0. We can use;
+            \begin{itemize}
+                \item 4 of 10 and 1 of 0.
+                \item 3 of 10 and 3 of 0.
+                \item 2 of 10 and 5 of 0.
+                \item 1 of 10 and 7 of 0.
+                \item 0 of 10 and 9 of 0. This case is not a valid case since the string including no 1 is not a     valid string.
+            \end{itemize}{}
+            If we calculate all strings per by one rule and sum all of them, we are done.
+            \begin{itemize}
+                \item $\dfrac{5!}{4! \cdot 1!} = \dfrac{5}{1} = 5$
+                \item $\dfrac{6!}{3! \cdot 3!} = \dfrac{6 \cdot 5 \cdot 4}{3 \cdot 2 \cdot 1} = 20$
+                \item $\dfrac{7!}{2! \cdot 5!} = \dfrac{7 \cdot 6}{2 \cdot 1} = 21$
+                \item $\dfrac{8!}{1! \cdot 7!} = \dfrac{8}{1} = 8$
+            \end{itemize}{}
+            Hence, $5 + 20 + 21 + 8 = 54$. There are 54 bit strings of length 9 such that every 1 is followed immediately by 0.
+        
+        \item If we want at least eight 1s in the strings, we can calculate the sum of the number of strings that have eight 1s, nine 1s and ten 1s in them.
+            \begin{itemize}
+                \item For eight 1s, there are two 0s. 
+                        $\dfrac{10!}{8! \cdot 2!} = \dfrac{10 \cdot 9}{2 \cdot 1} = 45$
+                \item For nine 1s, there is one 0.
+                        $\dfrac{10!}{9! \cdot 1!} = \dfrac{10}{1} = 10$
+                \item For ten 1s, there is zero 0.
+                        $\dfrac{10!}{10!} = 1$
+            \end{itemize}{}
+            Hence, $45 + 10 + 1 = 56$. There are 56 bit strings of length 10 have at least eight 1s in them.
+\pagebreak{}
+        \item In order to a function $f: A \rightarrow B$ be a onto function, there must be no remaining element in the set B. In this case, there must be no remaining element in the set with 3 elements.
+        
+        So lets take our 4 elements from the first set and respectively call them $a$, $b$, $c$, and $d$.
+        \begin{itemize}
+            \item For $a$, there are 4 different elements in the second set, we can select 4 different item.
+            \item For $b$, there are 3 different elements in the second set, since we do not want any remaining element in the second set, we can select 3 different item.
+            \item Similarly, there are 2 and 1 different elements in the second set, for $c$ and $d$ respectively.
+        \end{itemize}{}
+        Therefore, the total number of onto functions are $4 \cdot 3 \cdot 2 \cdot 1 = 4! = 24$.
+        
+        \item We have 5 identical Discrete Mathematics and 7 identical Signals and Systems textbooks. Since there are identical, there are only 3 case that satisfies the condition.
+        \begin{itemize}
+            \item 1 Discrete Mathematics textbook and 3 Signals and Systems textbooks.
+            \item 2 Discrete Mathematics textbooks and 2 Signals and Systems textbooks.
+            \item 3 Discrete Mathematics textbook and 1 Signals and Systems textbook.
+        \end{itemize}{}
+        Therefore, there are only 3 different ways that you can make a collection of 4 books.
+    \end{enumerate}{}
+
+\section*{Answer 2}
+    \begin{itemize}[-]
+        \item Let $S_n = \{1, 2, 3 \cdots n\}$.
+    
+        \item Let's divide $S$ to two different subset such that $A_n \cup B_n = S$, $A_n \cap B_n = \O$,       $\forall x \in A_n \rightarrow x = 1 \pmod 2$, and $\forall x \in B_n \rightarrow x = 0 \pmod 2$. Hypothetically lets call them the main subsets of $S$.
+    
+        \item Both $A_n$ and $B_n$ have no two consecutive numbers. Therefore any subset of both $A_n$ and $B_n$ does not contain any two consecutive numbers.
+        
+        \item Let's calculate the initial values for the recurrence relation for $a_n$.
+            \begin{center}
+                $a_0 = 1$, $a_1 = 2$, and $a_2 = 3$.
+            \end{center}{}
+            
+        \item Let P be the one of the main subsets, $A_n$ or $B_n$. If $P$ includes $n$, then all elements of $P$ except $n$ can make any of the main subsets of $S_{n-2}$. If $P$ does not include $n$, then the elements of $P$ must be one of the main subsets of $S_{n-1}$ Therefore,
+            \begin{center}
+                $a_n = a_{n-1} + a_{n-2}$
+            \end{center}{}
+        which is also satisfies the conditions for $a_0$, $a_1$, and $a_2$.
+    \end{itemize}{}
+
+    \begin{enumerate}[a)]
+        \item Since it's linear homogeneous recurrence, we have to find the characteristic equation.
+            \begin{align*}
+                r^2 - r - 1 &= 0
+            \end{align*}
+            Roots are $r_1 = \dfrac{1 + \sqrt{5}}{2}$ and $r_2 = \dfrac{1 - \sqrt{5}}{2}$.
+            
+            \begin{center}
+                $a_n = \alpha_1 \cdot (\dfrac{1 + \sqrt{5}}{2})^n + \alpha_2 \cdot (\dfrac{1 - \sqrt{5}}{2})^n$
+            
+                $n = 0 \rightarrow a_0 = \alpha_1 + \alpha_2 = 1$ \\
+                $n = 1 \rightarrow a_1 = \alpha_1 \cdot \dfrac{1 + \sqrt{5}}{2} + \alpha_2 \cdot \dfrac{1 - \sqrt{5}}{2}= 2$
+            \end{center}{}
+            
+            \begin{center}
+                $\alpha_1 = \dfrac{1}{2} + \dfrac{\sqrt{5}}{5}$ and $\alpha_2 = \dfrac{1}{2} - \dfrac{\sqrt{5}}{5}$
+                
+                $a_n = (\dfrac{1}{2} + \dfrac{\sqrt{5}}{5}) \cdot (\dfrac{1 + \sqrt{5}}{2})^n + (\dfrac{1}{2} - \dfrac{\sqrt{5}}{5}) \cdot (\dfrac{1 - \sqrt{5}}{2})^n$
+            \end{center}{}
+            
+        \item It can be seen that $a_n$ is actually the Fibonacci series, which is $\{1, 1, 2, 3, 5, 8 \cdots\}$
+            \begin{align*}
+                F(x) = \sum^{\infty}_{n=0} F_n \cdot x^n = 1 + x + 2x^2 + 3x^3 + 5x^4 + 8x^5
+            \end{align*}
+            where $F_n$ is the $n$th Fibonacci number, such that $F_0 = 1$, $F_1 = 1$, $F_n = F_{n-1} + F_{n-2}$.
+            \begin{align*}
+                F(x) = \sum^{\infty}_{n=0} F_n \cdot x^n &= 1 + x + \sum^{\infty}_{n=2} F_n \cdot x^n \\
+                &= 1 + x + \sum^{\infty}_{n=2} (F_{n-1} + F_{n-2}) \cdot x^n \\
+                &= 1 + x + x \cdot \sum^{\infty}_{n=2} F_{n-1} \cdot x^{n-1} + x^2 \cdot \sum^{\infty}_{n=2} F_{n-2} \cdot x^{n-2} \\
+                &= 1 + x + x \cdot (-1 + F_0 \cdot x^0 + \sum^{\infty}_{n=1} F_{n-1} \cdot x^{n-1}) + x^2 \cdot \sum^{\infty}_{n=2} F_{n-2} \cdot x^{n-2} \\
+                &= 1 + x + x \cdot (-1 + F(x)) + x^2 \cdot F(x) \\
+                &= 1 + x - x + x \cdot F(x) + x^2 \cdot F(x) \\
+                F(x) &= 1 + x \cdot F(x) + x^2 \cdot F(x)
+            \end{align*}
+            Therefore,
+            \begin{align*}
+                F(x) = \dfrac{1}{1 - x - x^2}
+            \end{align*}
+            
+    \end{enumerate}{}
+
+\pagebreak{}
+
+\section*{Answer 3}
+    
+    \begin{itemize}
+        \item Since it's linear homogeneous recurrence, we have to find the characteristic equation.
+            \begin{align*}
+                r^3 - 4r^2 - r + 4 &= 0 \\
+                r (r^2 - 1) - 4(r^2 - 1) &= 0 \\
+                (r - 4) \cdot (r^2 - 1) &= 0 \\
+                (r - 4) \cdot (r - 1) \cdot (r + 1) &= 0
+            \end{align*}
+            The roots of the equation are $r_1 = 4$, $r_2 = 1$, $r_3 = -1$.
+        
+        \item $a_n = \alpha_1 \cdot 4^n + \alpha_2 \cdot 1^n - \alpha_3 \cdot (-1)^n$
+            \begin{align*}
+                n = 0 \rightarrow & \; a_0 = \alpha_1 + \alpha_2 - \alpha_3 = 4 \\
+                n = 1 \rightarrow & \; a_1 = \alpha_1 \cdot 4 + \alpha_2 + \alpha_3 = 8 \\
+                n = 2 \rightarrow & \; a_2 = \alpha_1 \cdot 16 + \alpha_2 - \alpha_3 = 34
+            \end{align*}
+            
+        \item Roots are $\alpha_1 = 2$, $\alpha_2 = 1$, $\alpha_3 = -1$. Therefore,
+            \begin{align*}
+                a_n = 2 \cdot 4^n + (-1)^n + 1
+            \end{align*}
+            which satisfies the initial conditions, $a_0 = 4$, $a_1 = 8$, $a_2 = 34$.
+    \end{itemize}{}
+
+\section*{Answer 4}
+    \noindent R is an equivalence relation if and only if R is \textit{reflexive}, \textit{symmetric}, and \textit{transitive}.
+    
+    \begin{itemize}
+        \item \textit{Reflexive} \\
+            Let a $(x, y)$, then if $a R a$ holds, it is reflexive. If $x_1 = x_2 \land y_1 = y_2$ is true, then it is reflexive. Since $3x_1 - 2y_1 = 3x_2 - 2y_2$, it is reflexive.
+            
+        \item \textit{Symmetric} \\
+            Let a $(x_1, y_1)$ and b $(x_2, y_2)$, then if $a R b \rightarrow b R a$ holds, it is symmetric. Since $3x_1 - 2y_1 = 3x_2 - 2y_2$, it is symmetric.
+            
+        \item \textit{Transitive} \\
+            Let a $(x_1, y_1)$, b $(x_2, y_2)$, and c $(x_3, y_3)$, then if $a R b \land b R c \rightarrow a R c$ holds, it is transitive. Since $3x_1 - 2y_1 = 3x_2 - 2y_2$, it is transitive.
+    \end{itemize}{}
+\end{document}

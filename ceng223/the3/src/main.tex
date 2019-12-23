@@ -1,0 +1,312 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multicol}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+%\topmargin=0cm
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+%\setlength{\leftmargin}{-5cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+
+%misc libraries goes here
+
+
+
+\begin{document}
+
+\section*{Student Information } 
+%Write your full name and id number between the colon and newline
+%Put one empty space character after colon and before newline
+Full Name : Ozan Akın \\
+Id Number : 2309599 \\
+
+% Write your answers below the section tags
+\section*{Answer 1}
+
+\begin{itemize}
+    \item $x > 0$, $p$ is a prime and $p \; \nmid \; x$.
+    \item From Fermat's Little Theorem, $x^{p - 1} \equiv 1 \; (\text{mod} \; p)$.
+    \item To prove that $y \mid (p - 1)$, we can prove that $(p - 1) = yk + t$, $0 \leq t < k$ when $t = 0$.
+        \begin{itemize}[label={}]
+            \item $x^{(p - 1)} \equiv 1 \; (\text{mod} \; p)$
+            \item $x^{(yk + t)} \equiv 1 \; (\text{mod} \; p)$
+            \item $(x^y)^k \cdot x^t \equiv 1 \; (\text{mod} \; p)$
+            \item $(x^y) \equiv 1 \; (\text{mod} \; p)$ so $x^t \equiv 1 \; (\text{mod} \; p)$
+        \end{itemize}{}
+        Since $t < k$, as a result $t$ must be $0$ to hold the equation.
+    \item Since $t = 0$ and $(p - 1) = yk$, $y \mid (p - 1)$.
+\end{itemize}{}
+
+\section*{Answer 2}
+
+\begin{itemize}
+    \item Let $n = 3k + r$ such that $k \in \mathbb{Z}^{+}$ and $0 \leq r < 169$.
+    \item We have to prove that $169 \nmid 2n^2 + 10n - 7, \forall n \in \mathbb{Z}^+$, thus we have to show that \\
+    $2n^2 + 10n - 7 \equiv 0 \pmod{169}$ is wrong.
+    \item $2(3k + r)^2 + 10(3k + r) - 7 \equiv 0 \pmod{169}$.
+    \item $2r^2 + 10r - 7 \equiv 0 \pmod{169}$.
+    \item So, if we can show that for every value of $r$, the statement is wrong, then we can show that the main statement is wrong.
+    \item 
+        \begin{multicols}{2}
+$r = 0 \rightarrow 2r^2 + 10r - 7 \equiv 162 \pmod{169}$ \\
+$r = 1 \rightarrow 2r^2 + 10r - 7 \equiv 5 \pmod{169}$ \\
+$r = 2 \rightarrow 2r^2 + 10r - 7 \equiv 21 \pmod{169}$ \\
+$r = 3 \rightarrow 2r^2 + 10r - 7 \equiv 41 \pmod{169}$ \\
+$r = 4 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 5 \rightarrow 2r^2 + 10r - 7 \equiv 93 \pmod{169}$ \\
+$r = 6 \rightarrow 2r^2 + 10r - 7 \equiv 125 \pmod{169}$ \\
+$r = 7 \rightarrow 2r^2 + 10r - 7 \equiv 161 \pmod{169}$ \\
+$r = 8 \rightarrow 2r^2 + 10r - 7 \equiv 32 \pmod{169}$ \\
+$r = 9 \rightarrow 2r^2 + 10r - 7 \equiv 76 \pmod{169}$ \\
+$r = 10 \rightarrow 2r^2 + 10r - 7 \equiv 124 \pmod{169}$ \\
+$r = 11 \rightarrow 2r^2 + 10r - 7 \equiv 7 \pmod{169}$ \\
+$r = 12 \rightarrow 2r^2 + 10r - 7 \equiv 63 \pmod{169}$ \\
+$r = 13 \rightarrow 2r^2 + 10r - 7 \equiv 123 \pmod{169}$ \\
+$r = 14 \rightarrow 2r^2 + 10r - 7 \equiv 18 \pmod{169}$ \\
+$r = 15 \rightarrow 2r^2 + 10r - 7 \equiv 86 \pmod{169}$ \\
+$r = 16 \rightarrow 2r^2 + 10r - 7 \equiv 158 \pmod{169}$ \\
+$r = 17 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 18 \rightarrow 2r^2 + 10r - 7 \equiv 145 \pmod{169}$ \\
+$r = 19 \rightarrow 2r^2 + 10r - 7 \equiv 60 \pmod{169}$ \\
+$r = 20 \rightarrow 2r^2 + 10r - 7 \equiv 148 \pmod{169}$ \\
+$r = 21 \rightarrow 2r^2 + 10r - 7 \equiv 71 \pmod{169}$ \\
+$r = 22 \rightarrow 2r^2 + 10r - 7 \equiv 167 \pmod{169}$ \\
+$r = 23 \rightarrow 2r^2 + 10r - 7 \equiv 98 \pmod{169}$ \\
+$r = 24 \rightarrow 2r^2 + 10r - 7 \equiv 33 \pmod{169}$ \\
+$r = 25 \rightarrow 2r^2 + 10r - 7 \equiv 141 \pmod{169}$ \\
+$r = 26 \rightarrow 2r^2 + 10r - 7 \equiv 84 \pmod{169}$ \\
+$r = 27 \rightarrow 2r^2 + 10r - 7 \equiv 31 \pmod{169}$ \\
+$r = 28 \rightarrow 2r^2 + 10r - 7 \equiv 151 \pmod{169}$ \\
+$r = 29 \rightarrow 2r^2 + 10r - 7 \equiv 106 \pmod{169}$ \\
+$r = 30 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 31 \rightarrow 2r^2 + 10r - 7 \equiv 28 \pmod{169}$ \\
+$r = 32 \rightarrow 2r^2 + 10r - 7 \equiv 164 \pmod{169}$ \\
+$r = 33 \rightarrow 2r^2 + 10r - 7 \equiv 135 \pmod{169}$ \\
+$r = 34 \rightarrow 2r^2 + 10r - 7 \equiv 110 \pmod{169}$ \\
+$r = 35 \rightarrow 2r^2 + 10r - 7 \equiv 89 \pmod{169}$ \\
+$r = 36 \rightarrow 2r^2 + 10r - 7 \equiv 72 \pmod{169}$ \\
+$r = 37 \rightarrow 2r^2 + 10r - 7 \equiv 59 \pmod{169}$ \\
+$r = 38 \rightarrow 2r^2 + 10r - 7 \equiv 50 \pmod{169}$ \\
+$r = 39 \rightarrow 2r^2 + 10r - 7 \equiv 45 \pmod{169}$ \\
+$r = 40 \rightarrow 2r^2 + 10r - 7 \equiv 44 \pmod{169}$ \\
+$r = 41 \rightarrow 2r^2 + 10r - 7 \equiv 47 \pmod{169}$ \\
+$r = 42 \rightarrow 2r^2 + 10r - 7 \equiv 54 \pmod{169}$ \\
+$r = 43 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 44 \rightarrow 2r^2 + 10r - 7 \equiv 80 \pmod{169}$ \\
+$r = 45 \rightarrow 2r^2 + 10r - 7 \equiv 99 \pmod{169}$ \\
+$r = 46 \rightarrow 2r^2 + 10r - 7 \equiv 122 \pmod{169}$ \\
+$r = 47 \rightarrow 2r^2 + 10r - 7 \equiv 149 \pmod{169}$ \\
+$r = 48 \rightarrow 2r^2 + 10r - 7 \equiv 11 \pmod{169}$ \\
+$r = 49 \rightarrow 2r^2 + 10r - 7 \equiv 46 \pmod{169}$ \\
+$r = 50 \rightarrow 2r^2 + 10r - 7 \equiv 85 \pmod{169}$ \\
+$r = 51 \rightarrow 2r^2 + 10r - 7 \equiv 128 \pmod{169}$ \\
+$r = 52 \rightarrow 2r^2 + 10r - 7 \equiv 6 \pmod{169}$ \\
+$r = 53 \rightarrow 2r^2 + 10r - 7 \equiv 57 \pmod{169}$ \\
+$r = 54 \rightarrow 2r^2 + 10r - 7 \equiv 112 \pmod{169}$ \\
+$r = 55 \rightarrow 2r^2 + 10r - 7 \equiv 2 \pmod{169}$ \\
+$r = 56 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 57 \rightarrow 2r^2 + 10r - 7 \equiv 132 \pmod{169}$ \\
+$r = 58 \rightarrow 2r^2 + 10r - 7 \equiv 34 \pmod{169}$ \\
+$r = 59 \rightarrow 2r^2 + 10r - 7 \equiv 109 \pmod{169}$ \\
+$r = 60 \rightarrow 2r^2 + 10r - 7 \equiv 19 \pmod{169}$ \\
+$r = 61 \rightarrow 2r^2 + 10r - 7 \equiv 102 \pmod{169}$ \\
+$r = 62 \rightarrow 2r^2 + 10r - 7 \equiv 20 \pmod{169}$ \\
+$r = 63 \rightarrow 2r^2 + 10r - 7 \equiv 111 \pmod{169}$ \\
+$r = 64 \rightarrow 2r^2 + 10r - 7 \equiv 37 \pmod{169}$ \\
+$r = 65 \rightarrow 2r^2 + 10r - 7 \equiv 136 \pmod{169}$ \\
+$r = 66 \rightarrow 2r^2 + 10r - 7 \equiv 70 \pmod{169}$ \\
+$r = 67 \rightarrow 2r^2 + 10r - 7 \equiv 8 \pmod{169}$ \\
+$r = 68 \rightarrow 2r^2 + 10r - 7 \equiv 119 \pmod{169}$ \\
+$r = 69 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 70 \rightarrow 2r^2 + 10r - 7 \equiv 15 \pmod{169}$ \\
+$r = 71 \rightarrow 2r^2 + 10r - 7 \equiv 138 \pmod{169}$ \\
+$r = 72 \rightarrow 2r^2 + 10r - 7 \equiv 96 \pmod{169}$ \\
+$r = 73 \rightarrow 2r^2 + 10r - 7 \equiv 58 \pmod{169}$ \\
+$r = 74 \rightarrow 2r^2 + 10r - 7 \equiv 24 \pmod{169}$ \\
+$r = 75 \rightarrow 2r^2 + 10r - 7 \equiv 163 \pmod{169}$ \\
+$r = 76 \rightarrow 2r^2 + 10r - 7 \equiv 137 \pmod{169}$ \\
+$r = 77 \rightarrow 2r^2 + 10r - 7 \equiv 115 \pmod{169}$ \\
+$r = 78 \rightarrow 2r^2 + 10r - 7 \equiv 97 \pmod{169}$ \\
+$r = 79 \rightarrow 2r^2 + 10r - 7 \equiv 83 \pmod{169}$ \\
+$r = 80 \rightarrow 2r^2 + 10r - 7 \equiv 73 \pmod{169}$ \\
+$r = 81 \rightarrow 2r^2 + 10r - 7 \equiv 67 \pmod{169}$ \\
+$r = 82 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 83 \rightarrow 2r^2 + 10r - 7 \equiv 67 \pmod{169}$ \\
+$r = 84 \rightarrow 2r^2 + 10r - 7 \equiv 73 \pmod{169}$ \\
+$r = 85 \rightarrow 2r^2 + 10r - 7 \equiv 83 \pmod{169}$ \\
+$r = 86 \rightarrow 2r^2 + 10r - 7 \equiv 97 \pmod{169}$ \\
+$r = 87 \rightarrow 2r^2 + 10r - 7 \equiv 115 \pmod{169}$ \\
+$r = 88 \rightarrow 2r^2 + 10r - 7 \equiv 137 \pmod{169}$ \\
+$r = 89 \rightarrow 2r^2 + 10r - 7 \equiv 163 \pmod{169}$ \\
+$r = 90 \rightarrow 2r^2 + 10r - 7 \equiv 24 \pmod{169}$ \\
+$r = 91 \rightarrow 2r^2 + 10r - 7 \equiv 58 \pmod{169}$ \\
+$r = 92 \rightarrow 2r^2 + 10r - 7 \equiv 96 \pmod{169}$ \\
+$r = 93 \rightarrow 2r^2 + 10r - 7 \equiv 138 \pmod{169}$ \\
+$r = 94 \rightarrow 2r^2 + 10r - 7 \equiv 15 \pmod{169}$ \\
+$r = 95 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 96 \rightarrow 2r^2 + 10r - 7 \equiv 119 \pmod{169}$ \\
+$r = 97 \rightarrow 2r^2 + 10r - 7 \equiv 8 \pmod{169}$ \\
+$r = 98 \rightarrow 2r^2 + 10r - 7 \equiv 70 \pmod{169}$ \\
+$r = 99 \rightarrow 2r^2 + 10r - 7 \equiv 136 \pmod{169}$ \\
+$r = 100 \rightarrow 2r^2 + 10r - 7 \equiv 37 \pmod{169}$ \\
+$r = 101 \rightarrow 2r^2 + 10r - 7 \equiv 111 \pmod{169}$ \\
+$r = 102 \rightarrow 2r^2 + 10r - 7 \equiv 20 \pmod{169}$ \\
+$r = 103 \rightarrow 2r^2 + 10r - 7 \equiv 102 \pmod{169}$ \\
+$r = 104 \rightarrow 2r^2 + 10r - 7 \equiv 19 \pmod{169}$ \\
+$r = 105 \rightarrow 2r^2 + 10r - 7 \equiv 109 \pmod{169}$ \\
+$r = 106 \rightarrow 2r^2 + 10r - 7 \equiv 34 \pmod{169}$ \\
+$r = 107 \rightarrow 2r^2 + 10r - 7 \equiv 132 \pmod{169}$ \\
+$r = 108 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 109 \rightarrow 2r^2 + 10r - 7 \equiv 2 \pmod{169}$ \\
+$r = 110 \rightarrow 2r^2 + 10r - 7 \equiv 112 \pmod{169}$ \\
+$r = 111 \rightarrow 2r^2 + 10r - 7 \equiv 57 \pmod{169}$ \\
+$r = 112 \rightarrow 2r^2 + 10r - 7 \equiv 6 \pmod{169}$ \\
+$r = 113 \rightarrow 2r^2 + 10r - 7 \equiv 128 \pmod{169}$ \\
+$r = 114 \rightarrow 2r^2 + 10r - 7 \equiv 85 \pmod{169}$ \\
+$r = 115 \rightarrow 2r^2 + 10r - 7 \equiv 46 \pmod{169}$ \\
+$r = 116 \rightarrow 2r^2 + 10r - 7 \equiv 11 \pmod{169}$ \\
+$r = 117 \rightarrow 2r^2 + 10r - 7 \equiv 149 \pmod{169}$ \\
+$r = 118 \rightarrow 2r^2 + 10r - 7 \equiv 122 \pmod{169}$ \\
+$r = 119 \rightarrow 2r^2 + 10r - 7 \equiv 99 \pmod{169}$ \\
+$r = 120 \rightarrow 2r^2 + 10r - 7 \equiv 80 \pmod{169}$ \\
+$r = 121 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 122 \rightarrow 2r^2 + 10r - 7 \equiv 54 \pmod{169}$ \\
+$r = 123 \rightarrow 2r^2 + 10r - 7 \equiv 47 \pmod{169}$ \\
+$r = 124 \rightarrow 2r^2 + 10r - 7 \equiv 44 \pmod{169}$ \\
+$r = 125 \rightarrow 2r^2 + 10r - 7 \equiv 45 \pmod{169}$ \\
+$r = 126 \rightarrow 2r^2 + 10r - 7 \equiv 50 \pmod{169}$ \\
+$r = 127 \rightarrow 2r^2 + 10r - 7 \equiv 59 \pmod{169}$ \\
+$r = 128 \rightarrow 2r^2 + 10r - 7 \equiv 72 \pmod{169}$ \\
+$r = 129 \rightarrow 2r^2 + 10r - 7 \equiv 89 \pmod{169}$ \\
+$r = 130 \rightarrow 2r^2 + 10r - 7 \equiv 110 \pmod{169}$ \\
+$r = 131 \rightarrow 2r^2 + 10r - 7 \equiv 135 \pmod{169}$ \\
+$r = 132 \rightarrow 2r^2 + 10r - 7 \equiv 164 \pmod{169}$ \\
+$r = 133 \rightarrow 2r^2 + 10r - 7 \equiv 28 \pmod{169}$ \\
+$r = 134 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 135 \rightarrow 2r^2 + 10r - 7 \equiv 106 \pmod{169}$ \\
+$r = 136 \rightarrow 2r^2 + 10r - 7 \equiv 151 \pmod{169}$ \\
+$r = 137 \rightarrow 2r^2 + 10r - 7 \equiv 31 \pmod{169}$ \\
+$r = 138 \rightarrow 2r^2 + 10r - 7 \equiv 84 \pmod{169}$ \\
+$r = 139 \rightarrow 2r^2 + 10r - 7 \equiv 141 \pmod{169}$ \\
+$r = 140 \rightarrow 2r^2 + 10r - 7 \equiv 33 \pmod{169}$ \\
+$r = 141 \rightarrow 2r^2 + 10r - 7 \equiv 98 \pmod{169}$ \\
+$r = 142 \rightarrow 2r^2 + 10r - 7 \equiv 167 \pmod{169}$ \\
+$r = 143 \rightarrow 2r^2 + 10r - 7 \equiv 71 \pmod{169}$ \\
+$r = 144 \rightarrow 2r^2 + 10r - 7 \equiv 148 \pmod{169}$ \\
+$r = 145 \rightarrow 2r^2 + 10r - 7 \equiv 60 \pmod{169}$ \\
+$r = 146 \rightarrow 2r^2 + 10r - 7 \equiv 145 \pmod{169}$ \\
+$r = 147 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 148 \rightarrow 2r^2 + 10r - 7 \equiv 158 \pmod{169}$ \\
+$r = 149 \rightarrow 2r^2 + 10r - 7 \equiv 86 \pmod{169}$ \\
+$r = 150 \rightarrow 2r^2 + 10r - 7 \equiv 18 \pmod{169}$ \\
+$r = 151 \rightarrow 2r^2 + 10r - 7 \equiv 123 \pmod{169}$ \\
+$r = 152 \rightarrow 2r^2 + 10r - 7 \equiv 63 \pmod{169}$ \\
+$r = 153 \rightarrow 2r^2 + 10r - 7 \equiv 7 \pmod{169}$ \\
+$r = 154 \rightarrow 2r^2 + 10r - 7 \equiv 124 \pmod{169}$ \\
+$r = 155 \rightarrow 2r^2 + 10r - 7 \equiv 76 \pmod{169}$ \\
+$r = 156 \rightarrow 2r^2 + 10r - 7 \equiv 32 \pmod{169}$ \\
+$r = 157 \rightarrow 2r^2 + 10r - 7 \equiv 161 \pmod{169}$ \\
+$r = 158 \rightarrow 2r^2 + 10r - 7 \equiv 125 \pmod{169}$ \\
+$r = 159 \rightarrow 2r^2 + 10r - 7 \equiv 93 \pmod{169}$ \\
+$r = 160 \rightarrow 2r^2 + 10r - 7 \equiv 65 \pmod{169}$ \\
+$r = 161 \rightarrow 2r^2 + 10r - 7 \equiv 41 \pmod{169}$ \\
+$r = 162 \rightarrow 2r^2 + 10r - 7 \equiv 21 \pmod{169}$ \\
+$r = 163 \rightarrow 2r^2 + 10r - 7 \equiv 5 \pmod{169}$ \\
+$r = 164 \rightarrow 2r^2 + 10r - 7 \equiv 162 \pmod{169}$ \\
+$r = 165 \rightarrow 2r^2 + 10r - 7 \equiv 154 \pmod{169}$ \\
+$r = 166 \rightarrow 2r^2 + 10r - 7 \equiv 150 \pmod{169}$ \\
+$r = 167 \rightarrow 2r^2 + 10r - 7 \equiv 150 \pmod{169}$ \\
+$r = 168 \rightarrow 2r^2 + 10r - 7 \equiv 154 \pmod{169}$
+        \end{multicols}{}
+    \item So, $2n^2 + 10n - 7 \not \equiv 0 \pmod{169}$.
+    \item Hence, $169 \nmid (2n^2 + 10n - 7)$, $\forall n \in \mathbb{Z}^{+}$.
+\end{itemize}{}
+
+\pagebreak{}
+
+\section*{Answer 3}
+
+\begin{itemize}
+    \item $a - b = mp$, $p \in \mathbb{Z}$ from $a \equiv b \; (\text{mod} \; m)$.
+    \item $n \mid a - b$ from $a \equiv b \; (\text{mod} \; n)$.
+    \item Hence, $n \mid mp$.
+    \item From $gcd(m, n) = 1$, we can say that $n \mid p$.
+    \item Let $p = nt$.
+    \item $a - b = mp = mnt$, so $mn \mid a - b$.
+    \item Hence,  $a \equiv b \; (\text{mod} \; m \times n)$.
+    
+\end{itemize}{}
+
+\section*{Answer 4}
+
+Since $j \geq 1$ and $k, n \geq 0$, we can define function $f$ such that
+
+$$f(n, k) = \sum_{j=1}^n \dfrac{(j+k-1)!}{(j-1)!} = \dfrac{(n+k)!}{(k+1) \cdot (n-1)!}$$
+
+\begin{enumerate}[1)]
+    \item
+        \subsection*{Base Case}
+            for $n=1$
+            \begin{align*}
+\sum_{j=1}^n \dfrac{(j+k-1)!}{(j-1)!} &= \dfrac{(n+k)!}{(k+1) \cdot (n-1)!} \\
+\dfrac{k!}{1} &= \dfrac{(k+1)!}{(k+1) \cdot 0!} \\
+k! &= k!
+            \end{align*}
+    \item 
+        \subsection*{Inductive Step}
+            Assume that it is true for $n$.
+            
+            $$f(n, k) = \sum_{j=1}^n \dfrac{(j+k-1)!}{(j-1)!} = \dfrac{(n+k)!}{(k+1) \cdot (n-1)!}$$
+
+\pagebreak{}
+            
+            We have to show that it is also true that $n + 1$.
+            
+            $$f(n+1, k) = \sum_{j=1}^{n+1} \dfrac{(j+k-1)!}{(j-1)!} = \dfrac{(n+k+1)!}{(k+1) \cdot n!}$$
+            
+            \begin{align*}
+\dfrac{(n+k)!}{(k+1) \cdot (n-1)!} + \dfrac{(n+k)!}{n!} &= \dfrac{(n+k+1)!}{(k+1) \cdot n!} \\
+\dfrac{(n+k)! \cdot n}{(k+1) \cdot n!} + \dfrac{(n+k)!}{n!} &= \dfrac{(n+k+1) \cdot (n+k)!}{(k+1)\cdot n!} \\
+\dfrac{(n+k)!}{n!} &= \dfrac{(k+1) \cdot (n+k)!}{(k+1) \cdot n!} \\
+\dfrac{(n+k)!}{n!} &= \dfrac{(n+k)!}{n!}
+            \end{align*}
+            
+            Hence, by induction the statement is true.
+\end{enumerate}{}
+
+
+\section*{Answer 5}
+\noindent 
+
+\begin{enumerate}[1)]
+    \item 
+        \subsection*{Base Case}
+            $H_0 = 1 \leq 7^0 = 1$ \\
+            $H_1 = 3 \leq 7^1 = 7$ \\
+            $H_2 = 5 \leq 7^2 = 49$
+    \item
+        \subsection*{Inductive Step}
+            Assume that it is true for $n \geq 3$, 
+            $$H_{n-1} \leq 7^{n-1} \text{,} \;\;  H_{n-2} \leq 7^{n-2} \text{,} \; \text{and} \;\; H_{n-3} \leq 7^{n-3}$$
+            
+            We have to show that it is also true for $H_n$.
+            \begin{align*}
+                H_n &= 5 H_{n-1} + 5 H_{n-2} + 63 H_{n-3} \\
+                H_n &\leq 5 \cdot 7^{n-1} + 5 \cdot 7^{n-2} + 63 \cdot 7^{n-3} \\
+                H_n &\leq 35 \cdot 7^{n-2} + 5 \cdot 7^{n-2} + 9 \cdot 7^{n-2} \\
+                H_n &\leq 49 \cdot 7^{n-2} \\
+                H_n &\leq 7^n
+            \end{align*}
+            Hence, $H_n \leq 7^n$, for all $n \geq 0$ by induction.
+\end{enumerate}{}
+
+
+
+\end{document}
