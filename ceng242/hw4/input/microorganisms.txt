@@ -1,0 +1,22 @@
+6
+
+0
+Circular 5
+
+1
+Squadratic 5
+
+2
+Circular 2
+
+3
+Triangular 4 3.6 3.6
+AGSGGAUUAAUGASGUSUAG
+
+4
+Triangular 5.38 5.83 3.6
+AGSGGAUUUASGAGSAAUAG
+
+5
+Squadratic 3
+
