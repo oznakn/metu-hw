@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+\pgfmathdeclarefunction{gauss}{2}{\pgfmathparse{1/(#2*sqrt(2*pi))*exp(-((x-#1)^2)/(2*#2^2))}}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Ozan Akın \\
+
+ID : 2309599 \\
+
+
+\section*{Answer 1}
+\subsection*{a)}
+    There are two groups with $n$ people and $m$ people.
+    
+    \begin{itemize}
+        \item $n = 19$, $\overline{X} = 3.375$, and $s_{X}=0.96$
+        \item $m = 15$, $\overline{Y} = 2.050$, and $s_{Y}=1.12$
+    \end{itemize}
+    
+    The calculate degrees of freedom we can use formula 9.12 from the textbook page 263.
+    
+    \begin{center}
+        $v = \dfrac{(\dfrac{s_X^2}{n} + \dfrac{s_Y^2}{m})^2}{\dfrac{s_X^4}{n^2(n-1)} + \dfrac{s_Y^4}{m^2(m-1)}} = 27.7$
+    \end{center}
+    
+    Then we can use the formula from the textbook page 263 since they are two sample spaces with with unknown and unequal standard deviations.
+    
+    \begin{center}
+        $\overline{X} - \overline{Y} \pm t_{\alpha / 2} \cdot \sqrt{\dfrac{s_X^2}{n} + \dfrac{s_Y^2}{m}}$
+    \end{center}
+    
+    To compute 95\% confidence interval we can select $t_{0.025} = 2.048$ with 28 as degrees of freedom using the appendix A5 from the textbook.
+    
+    \begin{center}
+        $3.375 - 2.050 \pm 2.048 \cdot \sqrt{\dfrac{0.9216}{19} + \dfrac{1.2544}{15}}$
+    \end{center}
+    
+    \begin{center}
+        $1.325 \pm 0.744447$ or $[0.580553, 2.069447]$
+    \end{center}
+    
+
+\subsection*{b)}
+    Again using the same formula to compute 90\% confidence interval we can select $t_{0.05} = 1.701$ with 28 as degrees of freedom using the appendix A5 from the textbook.
+    
+    \begin{center}
+        $3.375 - 2.050 \pm 1.701 \cdot \sqrt{\dfrac{0.9216}{19} + \dfrac{1.2544}{15}}$
+    \end{center}
+    
+    \begin{center}
+        $1.325 \pm 0.61831275$ or $[0.70668725, 1.94331275]$
+    \end{center}
+    
+
+\subsection*{c)}
+    If we calculate confidence interval for the group with people above age 40, using the formula 9.9 from the page 259,
+    
+    \begin{center}
+        $\overline{X} \pm t_{\alpha / 2} \cdot \dfrac{s}{\sqrt{n}}$
+    \end{center}
+    
+    We can choose $t_{0.025} = 2.101$ with 18 degrees of freedom to compute 95\% confidence level.
+    
+    \begin{center}
+        $3.375 \pm 2.101 \cdot \dfrac{0.96}{\sqrt{19}}$
+    \end{center}
+    
+    \begin{center}
+        $3.375 \pm 0.46272235858$ or $[2.91227, 3.83772235]$
+    \end{center}
+    
+    Since $3$ is in the interval the answer is NO.
+
+\section*{Answer 2}
+
+\subsection*{a)}
+    \begin{center}
+        $H_0: \mu = 20.00$
+    \end{center}
+
+\subsection*{b)}
+    \begin{center}
+        $H_A: \mu \neq 20.00$
+    \end{center}
+  
+\subsection*{c)}
+    We can use the formula from the textbook page 276.
+    
+    \begin{center}
+        $t = \dfrac{\overline{X} - \mu_0}{s / \sqrt{n}}$ with degrees of freedom $n-1$
+    \end{center}
+    
+    \begin{center}
+        $t = \dfrac{20.07 - 20}{0.07 / \sqrt{11}} = 3.31662479$ with degrees of freedom $10$
+    \end{center}
+    
+    Thus we can select $t_{0.005} = 3.169$ with degrees of freedom $10$ for the statistical significance 1\%. Since it is a two-sided test, we have to accept if $|t| < t_{\alpha / 2}$.
+    
+    $3.3166 > 3.169$, thus we have to reject it. They should stop producing and check the production line.
+    
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[no markers, domain=0:13, samples=200,
+                axis lines*=left,
+                height=6cm, width=10cm,
+                xmin=-6,
+                xmax=6,
+                xtick={-3.169, 3.169},
+                ytick=\empty,
+                enlargelimits=false, clip=false, axis on top,
+                grid = major]
+                    \addplot [fill=cyan!40, draw=none, domain=-6:6] {gauss(0,2)} \closedcycle;
+                    \addplot [fill=orange!40, draw=none, domain=-6:-3.17] {gauss(0,2)} \closedcycle;
+                    \addplot [fill=orange!40, draw=none, domain=3.17:6] {gauss(0,2)} \closedcycle;
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    
+    \begin{center}
+        The orange areas represent the rejection regions
+    \end{center}
+    
+\section*{Answer 3}
+
+\subsection*{a)}
+    \begin{center}
+        $H_0: \mu_X - \mu_Y = 0$
+    \end{center}
+   
+
+\subsection*{b)}
+    \begin{center}
+        $H_A: \mu_X - \mu_Y < 0$
+    \end{center}
+
+    
+\subsection*{c)}
+    We can use the formula from the textbook page 273.
+    
+    \begin{center}
+        $Z = \dfrac{\overline{X} - \overline{Y} - D}{\sqrt{\dfrac{\sigma_X^2}{n} + \dfrac{\sigma_Y^2}{m}}}$ where $D = 0$
+    \end{center}
+    
+    \begin{center}
+        $Z = \dfrac{2.8 - 3}{\sqrt{\dfrac{2.89 + 1.96}{68}}} = -0.74888$
+    \end{center}
+    
+    With 5\% level of significance, we can select $z_{0.05} = 1.645$ from the textbook page 250. Since it is a left-tail alternative, we must accept it if $Z > -z_{0.05}$.
+    
+    Since $-0.74888 > -1.645$, it is accepted. We can not state that the new painkiller really produce better results.
+  
+    \begin{center}
+        \begin{tikzpicture}
+            \begin{axis}[no markers, domain=0:13, samples=200,
+                axis lines*=left,
+                height=6cm, width=10cm,
+                xmin=-6,
+                xmax=6,
+                xtick={-1.645},
+                ytick=\empty,
+                enlargelimits=false, clip=false, axis on top,
+                grid = major]
+                    \addplot [fill=cyan!40, draw=none, domain=-6:6] {gauss(0,2)} \closedcycle;
+                    \addplot [fill=orange!40, draw=none, domain=-6:-1.645] {gauss(0,2)} \closedcycle;
+            \end{axis}
+        \end{tikzpicture}
+    \end{center}
+    
+    \begin{center}
+        The orange area represents the rejection region
+    \end{center}
+    
+\end{document}
+

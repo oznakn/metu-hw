@@ -1,0 +1,173 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+\begin{document}
+
+\section*{Student Information}
+
+Name : Ozan Akın \\
+
+ID : 2309599 \\
+
+
+\section*{Answer 1}
+\subsection*{a)}
+    \begin{flalign*}
+        \indent E(X) &= \sum\limits_{x} x \cdot fP_X(x) & \\
+        \indent &= 0 \cdot P_X(0) + 1 \cdot P_X(1) + 2 \cdot P_X(2) & \\
+        \indent &= 0 \cdot \dfrac{3}{12} + 1 \cdot \dfrac{6}{12} + 2 \cdot \dfrac{3}{12} & \\
+        \indent &= 0 + \dfrac{1}{2} + \dfrac{1}{2} & \\
+        \indent &= 1
+    \end{flalign*}{}
+    
+    \begin{flalign*}
+        \indent Var(X) &= E(X^2) - \mu^2 & \\
+        \indent &= E(X^2) - 1^2 & \\
+        \indent &= 0^2 \cdot P_X(0) + 1^2 \cdot P_X(1) + 2^2 \cdot P_X(2) - 1 & \\
+        \indent &= 0 \cdot \dfrac{3}{12} + 1 \cdot \dfrac{6}{12} + 4 \cdot \dfrac{3}{12} - 1 & \\
+        \indent &= \dfrac{1}{2} + 1 - 1 & \\
+        \indent &= \dfrac{1}{2} &
+    \end{flalign*}{}
+
+\subsection*{b)}
+    Let $Z$ be $X + Y$.
+    
+    \begin{flalign*}
+        \indent P_Z(0) &= P(0, 0) = \dfrac{1}{12} & \\
+        \indent P_Z(1) &= P(1, 0) = \dfrac{4}{12} & \\
+        \indent P_Z(2) &= P(0, 2) + P(2, 0) = \dfrac{2}{12} + \dfrac{1}{12} = \dfrac{3}{12} = \dfrac{1}{4}  & \\
+        \indent P_Z(3) &= P(1, 2) = \dfrac{2}{12} = \dfrac{1}{6} & \\
+        \indent P_Z(4) &= P(2, 2) = \dfrac{2}{12} = \dfrac{1}{6} &
+    \end{flalign*}{}
+
+\subsection*{c)}
+    $Cov(X, Y) = E(XY) - E(X)E(Y)$
+    
+     \begin{flalign*}
+        \indent E(X) &= \sum\limits_{x} x \cdot fP_X(x) & \\
+        \indent &= 0 \cdot P_X(0) + 1 \cdot P_X(1) + 2 \cdot P_X(2) & \\
+        \indent &= 0 \cdot \dfrac{3}{12} + 1 \cdot \dfrac{6}{12} + 2 \cdot \dfrac{3}{12} & \\
+        \indent &= 0 + \dfrac{1}{2} + \dfrac{1}{2} & \\
+        \indent &= 1 &
+    \end{flalign*}{}
+    
+     \begin{flalign*}
+        \indent E(Y) &= \sum\limits_{y} y \cdot fP_Y(y) & \\
+        \indent &= 0 \cdot P_Y(0) + 2 \cdot P_Y(2) & \\
+        \indent &= 0 \cdot \dfrac{6}{12} + 2 \cdot \dfrac{6}{12} & \\
+        \indent &= 1 &
+    \end{flalign*}{}
+    
+    \begin{flalign*}
+        \indent E(XY) &= \sum\limits_{x}\sum\limits_{y} (xy) \cdot P(x, y) & \\
+        \indent &= 0 \cdot 0 \cdot \dfrac{1}{12} + 1 \cdot 0 \cdot \dfrac{4}{12} + 2 \cdot 0 \cdot \dfrac{1}{12} & \\
+        \indent & \; \; \; + 0 \cdot 2 \cdot \dfrac{2}{12} + 1 \cdot 2 \cdot \dfrac{2}{12} + 2 \cdot 2 \cdot \dfrac{2}{12} & \\
+        \indent &= \dfrac{4}{12} + \dfrac{8}{12} = \dfrac{12}{12} & \\
+        \indent &= 1 &
+    \end{flalign*}{}
+ 
+    \begin{flalign*}
+        \indent Cov(X, Y) &= E(XY) - E(X)E(Y) & \\
+        \indent Cov(X, Y) &= 1 - 1 \cdot 1 & \\
+        \indent &= 0 &
+    \end{flalign*}{}
+    
+\subsection*{d)}
+    Recall that $P(a, b) = P_A(a) \cdot P_B(b)$ if $A$ and $B$ are independent.
+    
+    \begin{flalign*}
+        \indent E(AB) &= \sum\limits_{a}\sum\limits_{b} (ab) \cdot P(a, b) & \\
+        \indent &= \sum\limits_{a}\sum\limits_{b} a \cdot P_A(a) \cdot b \cdot P_B(b) & \\
+        \indent &= \sum\limits_{a} a \cdot P_A(a) \sum\limits_{b} b \cdot P_B(b) & \\
+        \indent &= E(A)E(B) &
+    \end{flalign*}{}
+    
+    \indent Since $Cov(A, B) = E(AB) - E(A)E(B)$,  $Cov(A, B) = 0$.
+
+\subsection*{e)}
+     If $A$ and $B$ are independent, then $P(x, y) = P_X(x) \cdot P_Y(y)$.
+     
+     \begin{flalign*}
+         \indent P_Y(0) &= \dfrac{1}{12} + \dfrac{4}{12} + \dfrac{1}{12} = \dfrac{1}{2} & \\
+         \indent P_X(0) &= \dfrac{1}{12} + \dfrac{2}{12} = \dfrac{1}{4} & \\
+         \indent P(0, 0) &= \dfrac{1}{12} \neq P_X(0) \cdot P_Y(0) = \dfrac{1}{8} &
+     \end{flalign*}{}
+     
+     \indent As a result $X$ and $Y$ are dependent.
+
+
+\section*{Answer 2}
+\subsection*{a)}
+    We can calculate the result subtracting the probability of no broken pen, 1 broken pen, or 2 broken pen from 1. Let $P(x)$ be the function of the probability of $x$ broken pen.
+    
+    \begin{flalign*}
+        \indent P(0) &= (0.8)^{12} \cong 0.06871947 & \\
+        \indent P(1) &= (0.8)^{11} \cdot 0.2 \cdot C(12, 1) \cong 0.20615843 & \\
+        \indent P(2) &= (0.8)^{10} \cdot (0.2)^2 \cdot C(12, 2) \cong 0.2834678415 &
+    \end{flalign*}{}
+    
+    \indent $1 - P(0) - P(1) - P(2) \cong 0.441654251$.
+
+\subsection*{b)}
+    There are 12 different pens. In order to be fifth pen we test second broken pen, the one of the four pens must be broken. \\
+    
+    \indent Thus the probability is $(0.8)^3 \cdot 0.2 \cdot C(4, 1) \cdot 0.2 \cong 0.08192$.
+
+\subsection*{c)}
+    The probability of broken pen is $0.2$. That means for every $5$ pen, $1$ pen is broken. Since we want to find $4$ broken pens, we have to look $5 \cdot 4 = 20$ pen in average, to find $4$ broken pens.
+
+\section*{Answer 3}
+\subsection*{a)}
+    If Bob gets a phone call every 4 hours, that means Bob gets a $0.25$ phone call every hour. We can use Exponential Distribution to compute the probability.
+    
+    \begin{flalign*}
+        \indent P\{T \geq 2\} &= 1 - F(2) = 1 - 1 + e^{- \lambda \cdot 2} & \\
+        \indent &= e^{- \frac{1}{2}} & \\
+        \indent & \cong 0.6065306597 &
+    \end{flalign*}{}
+
+\subsection*{b)}
+    If Bob gets a phone call every 4 hours, that means Bob gets a $0.25$ phone call every hour, $2.5$ phone call every 10 hours. We can use Poisson Distribution to compute the probability. Let X be the number of calls, and X has Poisson Distribution with parameter $\lambda = 2.5$. From table A3 from the textbook,
+    
+    \begin{flalign*}
+        \indent & P\{X \leq 3\} = F_X(3) \cong 0.758 & \\
+    \end{flalign*}{}
+    
+\subsection*{c)}
+    If Bob gets a phone call every 4 hours, that means Bob gets a $0.25$ phone call every hour, $2.5$ phone call every 10 hours, $4$ phone call every 16 hours. We can use Poisson Distribution to compute the probability. \\
+    
+    Let X be the number of calls, and X has Poisson Distribution with parameter $\lambda = 2.5$. Let Y be the number of calls, and Y has Poisson Distribution with parameter $\lambda = 1.5$. Using the table A3 from the textbook,
+    
+    \begin{flalign*}
+        \indent & P\{X > 3\} = 1 - F_X(3) = 1 - 0.758 = 0.242 & \\
+        \indent & P\{Y > 0\} = 1 - F_Y(0) = 1 - 0.223 = 0.777
+    \end{flalign*}{}
+    \begin{flalign*}
+        \indent & P\{X > 2\} = 1 - F_X(3) = 1 - 0.544 = 0.456 & \\
+        \indent & P\{Y > 1\} = 1 - F_Y(0) = 1 - 0.558 = 0.442
+    \end{flalign*}{}
+    \begin{flalign*}
+        \indent & P\{X > 1\} = 1 - F_X(3) = 1 - 0.287 = 0.713 & \\
+        \indent & P\{Y > 2\} = 1 - F_Y(0) = 1 - 0.809 = 0.191
+    \end{flalign*}{}
+    \begin{flalign*}
+        \indent & P\{X > 0\} = 1 - F_X(3) = 1 - 0.082 = 0.918 & \\
+        \indent & P\{Y > 3\} = 1 - F_Y(0) = 1 - 0.934 = 0.066
+    \end{flalign*}{}
+    
+    $0.242 \cdot 0.777 + 0.456 \cdot 0.442 + 0.713 \cdot 0.191 + 0.918 \cdot 0.066 \cong 0.586357$
+    
+\end{document}
+

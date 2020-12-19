@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage[hmargin=3cm,vmargin=6.0cm]{geometry}
+\topmargin=-2cm
+\addtolength{\textheight}{6.5cm}
+\addtolength{\textwidth}{2.0cm}
+\setlength{\oddsidemargin}{0.0cm}
+\setlength{\evensidemargin}{0.0cm}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+
+
+\begin{document}
+
+\section*{Student Information}
+\noindent
+Name: Ozan Akın \\
+ID: 2309599 \\
+
+\section*{Answer 1}
+\subsection*{a)}
+    There are 2 green balls, 2 blue balls, and 2 red balls in the box X If the box is X, then the probability that pick a green ball can be denoted as $\texttt{the number of green balls} \; / \; \texttt{total number of balls}$. 
+    
+    Let's call this event X. Then, $P(X) = \dfrac{2}{6} = \dfrac{1}{3} \approx 0.333$
+    
+\subsection*{b)}
+    There are 2 red balls in the box X and 1 red balls in the box Y. But the probability of picking the box X or Y is different. Hence, we have to evaluate this situations in two different way.
+    
+    Let's call the event of picking red ball from the box X, X; and the event of picking red ball from the box Y, X. Since we cannot pick a ball from X and Y, these two events are independent.
+    
+    ~
+    
+    \begin{center}
+        $P(X) = \dfrac{4}{10} \cdot \dfrac{2}{6} = \dfrac{2}{15}$ \\
+        ~ \\
+        $P(Y) =  \dfrac{6}{10} \cdot \dfrac{1}{5} = \dfrac{3}{25}$
+    \end{center}{}
+    
+    ~
+    
+    Let's call the event of the picking a red ball, Z. Then the probability of Z can be denoted as:
+    
+    \begin{center}
+    $P(Z) = P(X) + P(Y) = \dfrac{2}{15} + \dfrac{3}{25} = \dfrac{10}{75} + \dfrac{9}{75} = \dfrac{19}{75} \approx 0.253$
+    \end{center}{}
+    
+    
+\subsection*{c)}
+    There are 2 blue balls in the box X, and 2 blue balls in the box Y. The question asks that what is the probability of we had chosen the box Y, if we picked a blue ball. Let's call this event Z.
+    
+    Let's call the event of picking a blue ball from the box X, X; and the event of picking a blue ball from the box Y, Y. These two events are independent. Then,
+    
+    \begin{center}
+        $P(X) = \dfrac{4}{10} \cdot \dfrac{2}{6} = \dfrac{2}{15}$ \\
+        ~ \\
+        $P(Y) = \dfrac{6}{10} \cdot \dfrac{2}{5} = \dfrac{6}{25}$
+    \end{center}{}
+    
+    Then we can evaluate the probability of the event Z as:
+    
+    \begin{center}
+        $P(Z) = \dfrac{P(Y)}{P(X) + P(Y)} = \dfrac{\dfrac{6}{25}}{\dfrac{2}{15} + \dfrac{6}{25}} = \dfrac{\dfrac{6}{25}}{\dfrac{10}{75} + \dfrac{18}{75}} = \dfrac{6}{25} \cdot \dfrac{75}{28} = \dfrac{18}{28} = \dfrac{9}{14} \approx 0.642$
+    \end{center}{}
+
+\section*{Answer 2}
+\subsection*{a)}
+    To prove that $X \leftrightarrow Y$ for two statements $X$ and $Y$, we can prove that $X \rightarrow Y$ and $Y \rightarrow X$ separately. Let $X$ be the statement that "$A$ and $B$ are mutually exclusive" and let $Y$ be the statement that "$\overline{A}$ and $\overline{B}$ are exhaustive."
+    
+    From the definition of mutually exclusive, if $A$ and $B$ are mutually exclusive, then $A \cap B = \emptyset$. Then, from the definition of the DeMorgan's Rules, $\overline{A} \cup \overline{B} = \Omega$, which is the definition of exhaustive case. As a result, $X \rightarrow Y$ holds.
+    
+    Again from the definition of the exhaustive case  $\overline{A} \cup \overline{B} = \Omega$. From the definition of the DeMorgan's Rules, $A \cap B = \emptyset$. Which is the definition of the mutually exclusive. As a result, $Y \rightarrow X$ holds.
+    
+    Hence, $A$ and $B$ are mutually exclusive if and only if $\overline{A}$ and $\overline{B}$ are exhaustive.
+
+\subsection*{b)}
+    Again we can use the same logic we did in the part a. If $A$, $B$ and $C$ are mutually exclusive, that means $A \cap B \cap C = \emptyset$. Then, again from the definition of the DeMorgan's Rules, $\overline{A} \cup \overline{B} \cup \overline{C} = \Omega$, which is the definition of the exhaustive case. The reverse of these steps also holds, like we did in the part a. As a result, $A$, $B$ and $C$ are mutually exclusive if and only if $\overline{A}$, $\overline{B}$ and $\overline{C}$ are exhaustive.
+
+\section*{Answer 3}
+
+\subsection*{a)}
+    In order to have exactly two dices to be successful, two dices must be 5 or 6, others must be 1, 2, 3, or 4. Let's call this event $X$. But, since there are 5 dices, we have to consider the change in the order of the dices.
+    
+    \begin{center}
+        $P(X) = \dfrac{2}{6} \cdot \dfrac{2}{6} \cdot \dfrac{4}{6} \cdot \dfrac{4}{6} \cdot \dfrac{4}{6} \cdot \dfrac{5!}{3! \cdot 2!} = \dfrac{2^8}{2^5 \cdot 3^5} \cdot 2 \cdot 5 = \dfrac{2^4 \cdot 5}{3^5} = \dfrac{80}{243} \approx 0.329$
+    \end{center}{}
+    
+\subsection*{b)}
+    In order to have at least 2 successful dices, we can calculate all possibilities, and the possibilities that have no successful dice, and only one successful dice. And then, we can remove these possibilities from the space and get the wanted result. Let's call that event $X$.
+    
+    \begin{itemize}
+        \item Since there are 5 dices, there are $6^5 = 7776$ different results.
+        \item To have no successful dice, there are $4^5 = 1024$ different results.
+        \item To have only one successful dice, there are $4^4 \cdot 2 \cdot \dfrac{5!}{4!} = 2560$
+    \end{itemize}{}
+    
+    \begin{center}
+        $P(X) = \dfrac{7776 - 1024 - 2560}{7776} = \dfrac{4192}{7776} \approx 0.539$
+    \end{center}{}
+    
+\section*{Answer 4}
+
+\subsection*{a)}
+    \begin{align*}
+        P(A=1, C=0) &= P(A=1, B=0, C=0) + P(A=1, B=1, C=0) \\
+        &= 0.06 + 0.09 = 0.15
+    \end{align*}{}
+    
+\subsection*{b)}
+    \begin{align*}
+        P(B=1) &= P(A=0, B=1, C=0) + P(A=0, B=1, C=1) + \\
+        &\;\;\;\;\;\;\;\;\;P(A=1, B=1, C=0) + P(A=1, B=1, C=1) \\
+        &= 0.21 + 0.02 + 0.09 + 0.08 \\
+        &= 0.4
+    \end{align*}{}
+    
+\subsection*{c)}
+    If the random variables $A$ and $B$ are independent, then $P(A=1) \cdot P(B=1) = P(A=1, B=1)$
+    
+    \begin{align*}
+        P(A=1) &= P(A=1, B=0, C=0) + P(A=1, B=0, C=1) + \\
+        &\;\;\;\;\;\;\;\;\;P(A=1, B=1, C=0) + P(A=1, B=1, C=1) \\
+        &= 0.06 + 0.32 + 0.09 + 0.08 \\
+        &= 0.54
+    \end{align*}{}
+    \begin{align*}
+        P(B=1) &= P(A=0, B=1, C=0) + P(A=0, B=1, C=1) + \\
+        &\;\;\;\;\;\;\;\;\;P(A=1, B=1, C=0) + P(A=1, B=1, C=1) \\
+        &= 0.21 + 0.02 + 0.09 + 0.08 \\
+        &= 0.39
+    \end{align*}{}
+    \begin{align*}
+        P(A=1, B=1) &= P(A=1, B=1, C=0) + P(A=1, B=1, C=1) \\
+        &= 0.09 + 0.08 = 0.17
+    \end{align*}{}
+    
+    Since $P(A=1) \cdot P(B=1) = 0.21 \neq 0.17 = P(A=1, B=1)$, $A$ and $B$ are not independent.
+
+\subsection*{d)}
+    Again if the random variables $A$ and $B$ are conditionally independent, then
+    
+    \begin{center}
+        $P(A=1|C=1) \cdot P(B=1|C=1) = P(A=1, B=1|C=1)$
+    \end{center}{}
+    
+    \begin{align*}
+        P(A=1, C=1) &= P(A=1, B=0, C=1) + P(A=1, B=1, C=1) \\
+        &= 0.32 + 0.08 \\
+        &= 0.4
+    \end{align*}{}
+    \begin{align*}
+        P(B=1, C=1) &= P(A=0, B=1, C=1) + P(A=1, B=1, C=1) \\
+        &= 0.02 + 0.08 \\
+        &= 0.1
+    \end{align*}{}
+    \begin{align*}
+        P(C=1) &= P(A=0, B=0, C=1) + P(A=0, B=1, C=1) + \\
+        &\;\;\;\;\;\;\;\;\;P(A=1, B=0, C=1) + P(A=1, B=1, C=1) \\
+        &= 0.08 + 0.02 + 0.32 + 0.08 \\
+        &= 0.5
+    \end{align*}{}
+    \begin{center}
+        $P(A=1|C=1) = \dfrac{P(A=1, C=1)}{P(C=1)} = \dfrac{0.4}{0.5} = 0.8$ \\
+        $P(B=1|C=1) = \dfrac{P(B=1, C=1)}{P(C=1)} = \dfrac{0.1}{0.5} = 0.2$ \\
+        $P(A=1, B=1|C=1) = \dfrac{P(A=1, B=1, C=1)}{P(C=1)} = \dfrac{0.08}{0.5} = 0.16$
+    \end{center}{}
+    
+    ~
+    
+    Since $P(A=1|C=1) \cdot P(B=1|C=1) = 0.8 \cdot 0.2 = 0.16 = 0.16 = P(A=1, B=1|C=1)$, they are conditionally independent.
+    
+\end{document}
+
+
