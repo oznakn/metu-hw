@@ -1,0 +1,1 @@
+r -q < <(./hex2raw < ctarget.l3)

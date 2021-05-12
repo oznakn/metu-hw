@@ -1,0 +1,92 @@
+# Ozan Akın, 2309599
+
+
+.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+.pos 0x100
+array:
+    .quad 0x000000001
+    .quad 0x000000020
+    .quad 0x000000300
+
+arrayp3:
+    .quad 0x000004000
+    .quad 0x000050000
+    .quad 0x000600000
+    .quad 0x007000000
+    .quad 0x080000000
+    .quad 0x900000000
+
+main:
+	irmovq arrayp3, %rdi
+	irmovq array, %rsi
+	irmovq $5, %rdx
+	call move # call move
+	ret
+
+# %r12 => checksum
+# %r13 => step
+move:
+	irmovq $8, %r8
+	irmovq $1, %r10
+
+	irmovq $0, %r12 # set checksum to 0
+	rrmovq %r8, %r13 # set step to 8
+
+	rrmovq %rdi, %rbx # mov src_v to %rbx
+	subq %rsi, %rbx # sub dst_v from %rbx
+	jle move_while
+
+	rrmovq %r12, %rbx # set %rbx to 0
+	rrmovq %rdx, %r14 # mov len to r14
+
+	andq %r14, %r14 # test len
+	je move_if_calc_comparison # if 0, jump to comparison
+
+move_if_calc_loop:
+	addq %r8, %rbx # add 8 to rbx
+	subq %r10, %r14 # sub 1 from $r14
+	jg move_if_calc_loop
+
+move_if_calc_comparison:
+	rrmovq %rbx, %r14 # move calculated value len * 8 to r14
+	addq %rsi, %r14 # add src_v to r14
+	subq %rdi, %r14 # sub src_v to r14
+	jle move_while
+
+	## The body of IF starts
+	subq %r8, %rbx # convert rbx from len * 8 to (len - 1) * 8
+
+	addq %rbx, %rdi # add (len - 1) * 8 to dst
+	addq %rbx, %rsi # add (len - 1) * 8 to src
+
+	subq %r8, %r13 # set step to -8
+	subq %r8, %r13
+	## The body of IF ends
+
+
+move_while:
+	andq %rdx, %rdx # test len
+	je move_while_end # jump to end if == 0
+
+	mrmovq (%rsi), %rbx # fetch value
+	xorq %rbx, %r12 # calculate checksum
+
+	mrmovq (%rsi), %rbx # fetch value
+	rmmovq %rbx, (%rdi) # set value
+
+	addq %r13, %rdi # add step to dst
+	addq %r13, %rsi # add step to src
+
+	subq %r10, %rdx # sub 1 from len
+	jmp move_while # jump to while
+
+move_while_end:
+	rrmovq %r12, %rax # set return value
+	ret # return
+
+.pos 0x300
+stack:

@@ -1,0 +1,4 @@
+b *(getbuf+15)
+b *(getbuf+27)
+b *(touch2+0)
+r -q < <(./hex2raw < ctarget.l4)

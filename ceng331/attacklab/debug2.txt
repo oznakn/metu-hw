@@ -1,0 +1,5 @@
+b *(getbuf+15)
+b *(touch2+0)
+b *(touch2+20)
+b *(touch2+39)
+r -q < <(./hex2raw < ctarget.l2)

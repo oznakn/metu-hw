@@ -1,0 +1,228 @@
+#/* $begin ncopy-ys */
+##################################################################
+# ncopy.ys - Copy a src block of len words to dst.
+# Return the number of positive words (>0) contained in src.
+#
+# Include your name and ID here.
+# Ozan Akın, 2309599
+# Describe how and why you modified the baseline code.
+#
+# First I removed some unnecessary instructions and move some of
+# them to top. Then, I split the main code into different loops
+# in order to bulk read and write. I used the numbers 8, 4, 2,
+# and 1 as the length of these loops. Then, I realized that since
+# 4 + 2 + 1 = 7, no other loops necessary after looping 8 values
+# at a time. At the end I have a loop of 8 values, and some blocks
+# to bulk write and read 4, 2, and 1 values at a time.
+#
+# Then I started to working on adding the JMPQ instruction. Since
+# the falling mechanism of the code (8 -> 4 -> 2 -> 1) decreases
+# the CPE. After my work on JMPQ instruction I finally managed to
+# add it.
+#
+# After adding the JMPQ instruction, I added a jump table
+# implementation for executing the stage after loop. However to
+# increase the speed more I divided the jump table into two sub
+# parts, one for reading the data, one for writing.
+#
+# Lastly I changed the first loop size from 8 to 9, since I have
+# more program save left. With these improvements, I managed to
+# see a CPE with 7.38.
+#
+# The Loop9 label is for looping through the elements.
+# CalculateJump calculates the jump values and jump to necessary
+# fields.
+# ReadTable and WriteTables are jump tables for reading and
+# writing data.
+#
+##################################################################
+# Do not modify this portion
+# Function prologue.
+# %rdi = src, %rsi = dst, %rdx = len
+ncopy:
+
+##################################################################
+# You can modify this portion
+	# Loop header
+	xorq %rax, %rax				# count = 0;
+
+	iaddq $-9, %rdx				# check len >= 9
+	jl CalculateJump			# if not, jump to jump table calculation
+
+
+Loop9:
+	# Read 8 values at a time
+
+	mrmovq (%rdi), %r8			# Read src
+	mrmovq 8(%rdi), %r9			# Read src + 1
+	mrmovq 16(%rdi), %r10		# Read src + 2
+	mrmovq 24(%rdi), %r11		# Read src + 3
+	mrmovq 32(%rdi), %r12		# Read src + 4
+	mrmovq 40(%rdi), %r13		# Read src + 5
+	mrmovq 48(%rdi), %r14		# Read src + 6
+	mrmovq 56(%rdi), %rbx		# Read src + 7
+	mrmovq 64(%rdi), %rbp		# Read src + 8
+
+	rmmovq %r8, (%rsi)			# Write src to dst
+	rmmovq %r9, 8(%rsi)			# Write src + 1 to dst + 1
+	rmmovq %r10, 16(%rsi)		# Write src + 2 to dst + 2
+	rmmovq %r11, 24(%rsi)		# Write src + 3 to dst + 3
+	rmmovq %r12, 32(%rsi)		# Write src + 4 to dst + 4
+	rmmovq %r13, 40(%rsi)		# Write src + 5 to dst + 5
+	rmmovq %r14, 48(%rsi)		# Write src + 6 to dst + 6
+	rmmovq %rbx, 56(%rsi)		# Write src + 7 to dst + 7
+	rmmovq %rbp, 64(%rsi)		# Write src + 8 to dst + 8
+
+	andq %r8, %r8				# Check (value > 0)
+	jle FWrite1					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite1:
+	andq %r9, %r9				# Check (value > 0)
+	jle FWrite2					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite2:
+	andq %r10, %r10				# Check (value > 0)
+	jle FWrite3					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite3:
+	andq %r11, %r11				# Check	(value > 0)
+	jle FWrite4					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite4:
+	andq %r12, %r12				# Check (value > 0)
+	jle FWrite5					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite5:
+	andq %r13, %r13				# Check (value > 0)
+	jle FWrite6					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite6:
+	andq %r14, %r14				# Check (value > 0)
+	jle FWrite7					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite7:
+	andq %rbx, %rbx				# Check (value > 0)
+	jle FWrite8					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite8:
+	andq %rbp, %rbp				# Check (value > 0)
+	jle FWrite9					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+FWrite9:
+	iaddq $72, %rdi				# Increase src pointer
+	iaddq $72, %rsi				# Increase dst pointer
+
+	iaddq $-9, %rdx				# Check len still >= 9 after the operation
+	jge Loop9					# If so, jump to start of the loop
+
+
+CalculateJump:					# Calcuate the jump table
+	addq %rdx, %rdx				# %rdx = %rx * 8
+	addq %rdx, %rdx				# Since the label size is 8 bytes.
+	addq %rdx, %rdx
+	iaddq ReadTable, %rdx		# Add the start of the jump table
+
+	# Extra 72 bytes caused by %rdx (len) is 9 bytes smaller
+	# than real len due to check (len >= 9) step.
+	mrmovq 72(%rdx), %rbp		# Calculate the read jump
+	mrmovq 144(%rdx), %rdx		# Calculate the write jump
+	jmpq %rbp					# Jump to read
+
+Read8:
+	mrmovq 56(%rdi), %rbx		# Read src + 7
+Read7:
+	mrmovq 48(%rdi), %r14		# Read src + 6
+Read6:
+	mrmovq 40(%rdi), %r13		# Read src + 5
+Read5:
+	mrmovq 32(%rdi), %r12		# Read src + 4
+Read4:
+	mrmovq 24(%rdi), %r11		# Read src + 3
+Read3:
+	mrmovq 16(%rdi), %r10		# Read src + 2
+Read2:
+	mrmovq 8(%rdi), %r9			# Read src + 1
+Read1:
+	mrmovq (%rdi), %r8			# Read src
+Read0:
+
+	jmpq %rdx					# Jump to write step
+
+Write8:
+	rmmovq %rbx, 56(%rsi)		# Write src + 7 to dst + 7
+	andq %rbx, %rbx				# Check (value > 0)
+	jle Write7					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write7:
+	rmmovq %r14, 48(%rsi)		# Write src + 6 to dst + 6
+	andq %r14, %r14				# Check (value > 0)
+	jle Write6					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write6:
+	rmmovq %r13, 40(%rsi)		# Write src + 5 to dst + 5
+	andq %r13, %r13				# Check (value > 0)
+	jle Write5					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write5:
+	rmmovq %r12, 32(%rsi)		# Write src + 4 to dst + 4
+	andq %r12, %r12				# Check (value > 0)
+	jle Write4					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write4:
+	rmmovq %r11, 24(%rsi)		# Write src + 3 to dst + 3
+	andq %r11, %r11				# Check (value > 0)
+	jle Write3					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write3:
+	rmmovq %r10, 16(%rsi)		# Write src + 2 to dst + 2
+	andq %r10, %r10				# Check (value > 0)
+	jle Write2					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write2:
+	rmmovq %r9, 8(%rsi)			# Write src + 1 to dst + 1
+	andq %r9, %r9				# Check (value > 0)
+	jle Write1					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write1:
+	rmmovq %r8, (%rsi)			# Write src to dst
+	andq %r8, %r8				# Check (value > 0)
+	jle Write0					# if not, jump to next stage
+	iaddq $1, %rax				# count += 1
+Write0:
+	ret							# Execution ended, return the function
+
+# Read Jump Table
+.align 8
+ReadTable:
+	.quad Done
+    .quad Read1
+    .quad Read2
+    .quad Read3
+    .quad Read4
+    .quad Read5
+    .quad Read6
+    .quad Read7
+    .quad Read8
+
+# Write Jump Table
+.align 8
+WriteTable:
+	.quad Done
+    .quad Write1
+    .quad Write2
+    .quad Write3
+    .quad Write4
+    .quad Write5
+    .quad Write6
+    .quad Write7
+    .quad Write8
+
+##################################################################
+# Do not modify the following section of code
+# Function epilogue.
+Done:
+	ret
+##################################################################
+# Keep the following label at the end of your function
+End:
+#/* $end ncopy-ys */

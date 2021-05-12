@@ -1,0 +1,62 @@
+# Ozan Akın, 2309599
+
+.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+.pos 0x100
+ele0:
+	.quad 0x0000a
+	.quad ele1
+ele1:
+	.quad 0x000b0
+	.quad ele2
+ele2:
+	.quad 0x00c00
+	.quad ele3
+ele3:
+	.quad 0x0d000
+	.quad ele4
+ele4:
+	.quad 0xe0000
+	.quad 0
+
+main:
+	irmovq ele0, %rdi # set first argument
+	call rrev # call rrev
+	ret
+
+rrev:
+	irmovq $0, %r10 # value 0
+
+	pushq %r12 # save %r12
+	rrmovq %rdi, %r12 # move rdi to r12
+
+	andq %r12, %r12 # test head
+	je rrev_ret_head # jump to return head
+
+	mrmovq 8(%rdi), %rdi # calculate head->next
+	andq %rdi, %rdi # test head->next
+	je rrev_ret_head # jump to return head
+
+	call rrev
+	rrmovq %r12, %rdi # put head back to %rdi
+
+	mrmovq 8(%rdi), %rdi # calculate to head->next
+	rmmovq %r12, 8(%rdi) # move head to head->next->next
+
+	rmmovq %r10, 8(%r12) # mov 0 to head->next
+
+	jmp rrev_end # jump to the end
+
+rrev_ret_head:
+	rrmovq %rdi, %rax # set return value
+
+rrev_end:
+	popq %r12 # load %r12
+	ret
+
+
+.pos 0x300
+stack:

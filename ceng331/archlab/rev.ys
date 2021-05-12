@@ -1,0 +1,51 @@
+.pos 0
+	irmovq stack, %rsp
+	call main
+	halt
+
+.pos 0x100
+ele0:
+	.quad 0x0000a
+	.quad ele1
+ele1:
+	.quad 0x000b0
+	.quad ele2
+ele2:
+	.quad 0x00c00
+	.quad ele3
+ele3:
+	.quad 0x0d000
+	.quad ele4
+ele4:
+	.quad 0xe0000
+	.quad 0
+
+main:
+	irmovq ele0, %rdi 	# set first argument
+	call rev 			# call rev
+	ret
+
+# %r12 => prev
+# Ozan Akın, 2309599
+
+
+# %r11 => next
+rev:
+	irmovq $0, %r12			# set prev pointer to 0
+
+rev_loop:
+	andq %rdi, %rdi			# check head pointer
+	je rev_end
+
+	mrmovq 8(%rdi), %r11	# next = head->next
+	rmmovq %r12, 8(%rdi)	# head->next = prev
+	rrmovq %rdi, %r12		# prev = head
+	rrmovq %r11, %rdi		# head = next
+
+	jmp rev_loop
+
+rev_end:
+	ret
+
+.pos 0x300
+stack:
