@@ -1,0 +1,11 @@
+server:
+	python3 server.py 16002 16003
+
+client:
+	python3 client.py 144.122.238.21 16002 16003 16000 16001
+
+client_sim:
+	python3 client.py 0.0.0.0 16004 16005 16000 16001
+
+sim:
+	./simulator 0.0.0.0 144.122.238.21 16004 16005 16000 16002 16003 16006 16007 10 5 3
