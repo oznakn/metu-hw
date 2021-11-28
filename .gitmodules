@@ -1,0 +1,3 @@
+[submodule "ceng444/vlang-compiler"]
+	path = ceng444/vlang-compiler
+	url = https://github.com/oznakn/vc.git
