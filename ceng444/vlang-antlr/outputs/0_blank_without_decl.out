@@ -1,0 +1,6 @@
+		SymbolTable
+
+
+(at line 1)	Function (name: main, returnType: int, parameters: (none)) {
+		}
+

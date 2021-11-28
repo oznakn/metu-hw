@@ -1,0 +1,7 @@
+		SymbolTable
+
+(at line 1)	GlobalVariable (name: a, type: int)
+
+(at line 2)	Function (name: main, returnType: real, parameters: (none)) {
+		}
+

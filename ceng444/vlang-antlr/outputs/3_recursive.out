@@ -1,0 +1,11 @@
+		SymbolTable
+
+(at line 1)	GlobalVariable (name: num, type: int)
+
+(at line 3)	Function (name: factorial, returnType: int, parameters: ((name: number, type: int))) {
+		}
+
+
+(at line 12)	Function (name: main, returnType: int, parameters: (none)) {
+		}
+

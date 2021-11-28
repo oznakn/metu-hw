@@ -1,0 +1,7 @@
+		SymbolTable
+
+(at line 1)	GlobalVariable (name: i, type: int), (name: ctr, type: real), (name: hello, type: int)
+
+(at line 2)	Function (name: main, returnType: int, parameters: ((name: k, type: int), (name: q, type: real))) {
+		}
+

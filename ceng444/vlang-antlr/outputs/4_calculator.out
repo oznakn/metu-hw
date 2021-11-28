@@ -1,0 +1,21 @@
+		SymbolTable
+
+(at line 7)	GlobalVariable (name: num1, type: real), (name: num2, type: real), (name: choice, type: int)
+
+(at line 9)	Function (name: printOptions, returnType: int, parameters: (none)) {
+		}
+
+
+(at line 21)	Function (name: factorial, returnType: real, parameters: ((name: number, type: real))) {
+		}
+
+
+(at line 29)	Function (name: power, returnType: real, parameters: ((name: base, type: real), (name: pow, type: real))) {
+(at line 30)		LocalVariable (name: p, type: real), (name: i, type: int)
+		}
+
+
+(at line 41)	Function (name: main, returnType: int, parameters: (none)) {
+(at line 42)		LocalVariable (name: dummy, type: int)
+		}
+
